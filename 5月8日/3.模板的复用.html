@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<div>
+	
+</div>
+
+
+
+<script type="text/template" id="son">
+	<ul>
+		{{ each list}}
+		<li>
+			<span>{{$index}}</span>
+			<span>{{$value}}</span>
+			
+		</li>
+		{{/each}}
+	</ul>
+</script>
+
+
+
+
+<script type="text/template" id="father">
+	<h4>这是第一个模板</h4>
+	{{include 'son' a}}
+	<h4>这是第二个模板</h4>
+	{{include 'son' b}}
+</script>
+
+
+
+
+
+
+<script src="js/template-web.js"></script>
+<script type="text/javascript">
+	let data = {
+				a: {
+					list: ['娱乐','科技','数码','汽车','生活','美女']
+				},
+				b: {
+					list: ['篮球','足球','排球','棒球','网球','台球']
+				}
+				
+			}
+var html =template("father",data);
+document.querySelector("div").innerHTML=html
+
+</script>
+
+
+</body>
+</html>

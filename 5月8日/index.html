@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script src="js/template-web.js"></script>
+
+<div></div>
+
+
+<script type="text/html" id="myData">
+	<!-- {{if status ==200}}
+	<h2>网络连接成功</h2>
+		{{if onreadystatus == 4}}
+			<h4>默认请求完成</h4>
+		{{/if}}
+	{{else if staus==404}}
+	<h3>页面访问错误</h3>
+	{{/if}} -->
+
+	<% if(status ==200){ %>
+	<h2>网络连接成功</h2>
+	<%  if(onreadystatus == 4 ){%>
+		<h2>请求接受成功</h2>
+		<% }%>
+	<% } %>
+
+</script>
+
+
+
+<script type="text/javascript">
+	let data={
+		status :200,
+		onreadystatus:4
+	}
+	var html =template("myData",data);
+	document.getElementsByTagName("div")[0].innerHTML=html;
+</script>
+</body>
+</html>
